@@ -1,6 +1,6 @@
 FROM alpine
 RUN apk add --update nodejs npm
-# COPY . /src
-# WORKDIR src
+COPY . /run
+WORKDIR run
 EXPOSE 3000
-ENTRYPOINT ["node", "src/index.js""]
+ENTRYPOINT ["node", "src/index.js"]
