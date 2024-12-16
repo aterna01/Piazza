@@ -1,13 +1,9 @@
 const jsonwebtoken = require('jsonwebtoken')
 require('dotenv').config()
 
-
 async function generateJWT(payload) {
   return new Promise((resolve, reject) => {
-    // jsonwebtoken.sign(payload, process.env.JWT_SECRET, {"expiresIn": "1h"}, (err, token) => {
-      console.log("process.env.JWT_SECRET in generateJWT: ", process.env.JWT_SECRET)
-      jsonwebtoken.sign(payload, process.env.JWT_SECRET, (err, token) => {
-
+    jsonwebtoken.sign(payload, process.env.JWT_SECRET, {"expiresIn": "1h"}, (err, token) => {
       if(err) {
         return reject(err);
       }
@@ -25,11 +21,8 @@ async function verifyJWT(req, res, next) {
 
   try {
     const decodedToken = await new Promise((resolve, reject) => {    
-      console.log("process.env.JWT_SECRET in verifyJWT: ", process.env.JWT_SECRET)
-
       jsonwebtoken.verify(jwtToken, process.env.JWT_SECRET, (err, decodedToken) => {
         if (err) {
-          console.log("eeeer in verify tokennnnnnn: ", err)
           return reject(err);
         }
         resolve(decodedToken);

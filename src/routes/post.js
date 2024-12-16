@@ -36,10 +36,7 @@ postRouter.post("/interact", verifyJWT, validatePostInteraction, async (req, res
 
     const searchQuery = {title}
 
-    console.log("msg dataaa: ", title, like, dislike, comment)
-    console.log("decoded token userrrrrr: ", email)
     const dbPost = (await find("posts", searchQuery))[0]
-    console.log("dbPostttttt: ", dbPost)
     if(!dbPost) {
       return res.status(404).send({"Error": `The post with provided title ${title} does not exist`})
     }
@@ -51,7 +48,6 @@ postRouter.post("/interact", verifyJWT, validatePostInteraction, async (req, res
     if(email === dbPost.owner && (like || dislike)) {
       return res.status(404).send({"Error": "The owner of a post can not like or dislike his own post"}) 
     }
-
 
     const secondsSinceCreated = getSecondsSinceTime(dbPost.timestamp)
 
@@ -70,11 +66,8 @@ postRouter.post("/interact", verifyJWT, validatePostInteraction, async (req, res
       "timestamp": new Date().toISOString()
     }
 
-    console.log("interactionnnn: ", interaction)
-
-
     dbPost.interactions.push(interaction)
-    // set to 0 if value is negative
+    // set to 0 if result of dbPost.expirationTime - secondsSinceCreated is negative
     dbPost.expirationTime = dbPost.expirationTime - secondsSinceCreated < 0 ? 0 : dbPost.expirationTime - secondsSinceCreated
 
 
@@ -82,9 +75,6 @@ postRouter.post("/interact", verifyJWT, validatePostInteraction, async (req, res
     // This needs to work for both operations
     dbPost.totalLikes = like ? dbPost.totalLikes += 1 : dbPost.totalLikes
     dbPost.totalDislikes = dislike ? dbPost.totalDislikes += 1 : dbPost.totalDislikes
-
-
-    console.log("dbPost updatedddd: ", dbPost)
   
     await replaceOne("posts", searchQuery, dbPost)
   
@@ -96,7 +86,6 @@ postRouter.post("/interact", verifyJWT, validatePostInteraction, async (req, res
 })
 
 postRouter.get("/get", verifyJWT, validateGetPost, async (req, res) => {  //search by topic, search by topic & topic.status, search for an active post with highest interest(maximum number of likes and dislikes)
-  console.log("call to /get: ", req.query)
   const {topic, status, highestInterest} = req.query;
 
   let postsToReturn = []
@@ -106,26 +95,16 @@ postRouter.get("/get", verifyJWT, validateGetPost, async (req, res) => {  //sear
     ...(status && {status})
   }
 
-
-
-  console.log("searchQuery: ", searchQuery)
-
   const dbPosts = await find("posts", searchQuery)
-
-  console.log("dbPostsssss: ", dbPosts)
 
   if(highestInterest) {
     dbPosts.sort(compare);
-    postsToReturn = dbPosts[0] ? dbPosts[0] : []  // if dbPosts is [] then assign to []
+    postsToReturn = dbPosts[0] ? [dbPosts[0]] : []  // if dbPosts is [] then assign to []
   } else {
     postsToReturn = dbPosts
   }
-  
- 
-
 
   res.status(200).send({"Posts": postsToReturn})
-
 })
 
 module.exports = {postRouter}

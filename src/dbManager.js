@@ -1,8 +1,8 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config()
 
-const url = `mongodb+srv://dbUser:${process.env.MONGO_DB_PASSWORD}@cluster0.kw5d5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const dbName = 'myProject';
+const dbName = process.env.DB_NAME
+const url = process.env.MONGO_DB_CONN_STRING
 
 let client = null;
 
@@ -53,10 +53,20 @@ async function replaceOne(collectionName, filter, replacement) {
 
 async function find(collectionName, query = {}) {
   const collection = await _getCollection(collectionName)
-  console.log("queryyy: ", query)
   const findResult = await collection.find(query).toArray();
-  console.log("findResult: ", findResult)
   return findResult;
+}
+
+async function dropCollection(collectionName) {
+  const collection = await _getCollection(collectionName)
+  await collection.drop()
+}
+
+async function closeClient() {
+  if(client) {
+    await client.close();
+    client = null;
+  }
 }
 
 
@@ -64,5 +74,7 @@ module.exports = {
   insertMany,
   insertOne,
   replaceOne,
-  find
+  find,
+  closeClient,
+  dropCollection
 }

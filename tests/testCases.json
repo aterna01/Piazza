@@ -1,0 +1,752 @@
+[
+  {
+    "user": "Olga",
+    "action": "register",
+    "description": "Olga should successfully register",
+    "HTTPVerb": "post",
+    "path": "/user/register",
+    "payload": {
+      "email": "olga_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 201,
+    "expectedMsg": "{\"Message\":\"The new user with email olga_email@mail.com was successfully registered\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Nick",
+    "action": "register",
+    "description": "Nick should successfully register",
+    "HTTPVerb": "post",
+    "path": "/user/register",
+    "payload": {
+      "email": "nick_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 201,
+    "expectedMsg": "{\"Message\":\"The new user with email nick_email@mail.com was successfully registered\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Mary",
+    "action": "register",
+    "description": "Mary should successfully register",
+    "HTTPVerb": "post",
+    "path": "/user/register",
+    "payload": {
+      "email": "mary_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 201,
+    "expectedMsg": "{\"Message\":\"The new user with email mary_email@mail.com was successfully registered\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Nestor",
+    "action": "register",
+    "description": "Nestor should successfully register",
+    "HTTPVerb": "post",
+    "path": "/user/register",
+    "payload": {
+      "email": "nestor_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 201,
+    "expectedMsg": "{\"Message\":\"The new user with email nestor_email@mail.com was successfully registered\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Olga",
+    "action": "login",
+    "description": "Olga should successfully login",
+    "HTTPVerb": "post",
+    "path": "/user/login",
+    "payload": {
+      "email": "olga_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new user with email olga_email@mail.com was successfully logined\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Nick",
+    "action": "login",
+    "description": "Nick should successfully login",
+    "HTTPVerb": "post",
+    "path": "/user/login",
+    "payload": {
+      "email": "nick_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new user with email nick_email@mail.com was successfully login\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Mary",
+    "action": "login",
+    "description": "Mary should successfully login",
+    "HTTPVerb": "post",
+    "path": "/user/login",
+    "payload": {
+      "email": "mary_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new user with email mary_email@mail.com was successfully login\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Nestor",
+    "action": "login",
+    "description": "Nestor should successfully login",
+    "HTTPVerb": "post",
+    "path": "/user/login",
+    "payload": {
+      "email": "nestor_email@mail.com",
+      "password": "VeryStrongPass123!"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new user with email nestor_email@mail.com was successfully login\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Olga",
+    "action": "failAuth",
+    "description": "Olga should fail to create post, when no token is provided",
+    "HTTPVerb": "post",
+    "path": "/post/create",
+    "payload": {
+      "title": "The best post",
+      "topic": ["Politics"],
+      "message": "This is my post",
+      "owner": "olga_email@mail.com"
+    },
+    "statusCode": 401,
+    "expectedMsg": "{\"Message\":\"authorization token not provided\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Olga",
+    "action": "createPost",
+    "description": "Olga should successfully create a post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/create",
+    "payload": {
+      "title": "Olga's post in Tech topic",
+      "topic": ["Tech"],
+      "message": "This is my post",
+      "owner": "olga_email@mail.com"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was successfully created by olga_email@mail.com\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Nick",
+    "action": "createPost",
+    "description": "Nick should successfully create a post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/create",
+    "payload": {
+      "title": "Nick's post in Tech topic",
+      "topic": ["Tech"],
+      "message": "This is my post",
+      "owner": "nick_email@mail.com"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was successfully created by nick_email@mail.com\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Mary",
+    "action": "createPost",
+    "description": "Mary should successfully create a post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/create",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "topic": ["Tech"],
+      "message": "This is my post",
+      "owner": "mary_email@mail.com"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was successfully created by mary_email@mail.com\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Nick",
+    "action": "getPosts",
+    "description": "Nick should successfully retrieve all posts from Tech topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Tech"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Olga",
+    "action": "getPosts",
+    "description": "Olga should successfully retrieve all posts from Tech topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Tech"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Nick",
+    "action": "interactPost",
+    "description": "Nick should successfully perfom 'like' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "like": true
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by nick_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Olga",
+    "action": "interactPost",
+    "description": "Olga should successfully perfom 'like' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "like": true
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by olga_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 0,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Nestor",
+    "action": "interactPost",
+    "description": "Nestor should successfully perfom 'like' interaction on Nick's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Nick's post in Tech topic",
+      "like": true
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by nestor_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 0,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Nestor",
+    "action": "interactPost",
+    "description": "Nestor should successfully perfom 'dislike' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "dislike": true
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by nestor_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Nick",
+    "action": "getPosts",
+    "description": "Nick should successfully retrieve all posts from Tech topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Tech"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Mary",
+    "action": "interactPost",
+    "description": "Mary should Not be able to perfom 'like' interaction on her own post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "like": true
+    },
+    "statusCode": 404,
+    "expectedMsg": "{\"Error\":\"The owner of a post can not like or dislike his own post\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Nick",
+    "action": "interactPost",
+    "description": "Nick should be able to perfom first 'comment' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "comment": "this is comment1 from Nick"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by nick_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": ["this is comment1 from Nick"]
+      }
+    ]
+  },
+  {
+    "user": "Nick",
+    "action": "interactPost",
+    "description": "Nick should be able to perfom second 'comment' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "comment": "this is comment2 from Nick"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by nick_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": ["this is comment1 from Nick", "this is comment2 from Nick"]
+      }
+    ]
+  },
+  {
+    "user": "Olga",
+    "action": "interactPost",
+    "description": "Olga should be able to perfom first 'comment' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "comment": "this is comment1 from Olga"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by olga_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": ["this is comment1 from Nick", "this is comment2 from Nick", "this is comment1 from Olga"]
+      }
+    ]
+  },
+  {
+    "user": "Olga",
+    "action": "interactPost",
+    "description": "Olga should be able to perfom second 'comment' interaction on Mary's post in Tech topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Mary's post in Tech topic",
+      "comment": "this is comment2 from Olga"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by olga_email@mail.com\"}",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": ["this is comment1 from Nick", "this is comment2 from Nick", "this is comment1 from Olga", "this is comment2 from Olga"]
+      }
+    ]
+  },
+  {
+    "user": "Nick",
+    "action": "getPosts",
+    "description": "Nick should successfully retrieve all posts from Tech topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Tech"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 3,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": ["this is comment1 from Nick", "this is comment2 from Nick", "this is comment1 from Olga", "this is comment2 from Olga"]
+      }
+    ]
+  },
+  {
+    "user": "Nestor",
+    "action": "createPost",
+    "description": "Nestor should successfully create a post in Health topic",
+    "HTTPVerb": "post",
+    "path": "/post/create",
+    "payload": {
+      "title": "Nestor's post in Health topic",
+      "topic": ["Health"],
+      "message": "This is my post",
+      "owner": "nestor_email@mail.com"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was successfully created by nestor_email@mail.com\"}",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+  {
+    "user": "Mary",
+    "action": "getPosts",
+    "description": "Mary should successfully retrieve all posts from Health topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Health"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 1,
+    "expectedPostsInteraction": [
+      {
+        "title": "Nestor's post in Health topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      }
+    ]
+  },
+  {
+    "user": "Mary",
+    "action": "interactPost",
+    "description": "Mary should be able to perfom 'comment' interaction on Nestor's post in Health topic",
+    "HTTPVerb": "post",
+    "path": "/post/interact",
+    "payload": {
+      "title": "Nestor's post in Health topic",
+      "comment": "this is comment1 from Mary"
+    },
+    "statusCode": 200,
+    "expectedMsg": "{\"Message\":\"The new post was interacted by mary_email@mail.com\"}",
+    "expectedNoOfPosts": 4,
+    "expectedPostsInteraction": [
+      {
+        "title": "Olga's post in Tech topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Nick's post in Tech topic",
+        "totalLikes": 1,
+        "totalDislikes": 0,
+        "comments": []
+      },
+      {
+        "title": "Mary's post in Tech topic",
+        "totalLikes": 2,
+        "totalDislikes": 1,
+        "comments": ["this is comment1 from Nick", "this is comment2 from Nick", "this is comment1 from Olga", "this is comment2 from Olga"]
+      },
+      {
+        "title": "Nestor's post in Health topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": ["this is comment1 from Mary"]
+      }
+    ]
+  },
+
+
+
+
+  {
+    "user": "Nestor",
+    "action": "getPosts",
+    "description": "Nestor should successfully retrieve all posts from Health topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Health"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 1,
+    "expectedPostsInteraction": [
+      {
+        "title": "Nestor's post in Health topic",
+        "totalLikes": 0,
+        "totalDislikes": 0,
+        "comments": ["this is comment1 from Mary"]
+      }
+    ]
+  },
+  {
+    "user": "Nick",
+    "action": "getPosts",
+    "description": "Nick should successfully browses all the expired messages on the Sports topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Sport"},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 0,
+    "expectedPostsInteraction": []
+  },
+
+
+  {
+    "user": "Nestor",
+    "action": "getPosts",
+    "description": "Nestor should successfull query all the active posts with the highest interest (maximum number of likes and dislikes) in the Tech topic",
+    "HTTPVerb": "get",
+    "path": "/post/get",
+    "payload": {"topic": "Tech", "highestInterest": true},
+    "statusCode": 200,
+    "expectedMsg": "",
+    "expectedNoOfPosts": 1,
+    "expectedPostsInteraction": [
+      {
+      "title": "Mary's post in Tech topic",
+      "totalLikes": 2,
+      "totalDislikes": 1,
+      "comments": ["this is comment1 from Nick", "this is comment2 from Nick", "this is comment1 from Olga", "this is comment2 from Olga"]
+    }
+  ]
+  }
+]
